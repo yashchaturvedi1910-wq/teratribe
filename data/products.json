@@ -1,0 +1,98 @@
+[
+  {
+    "id": "prod-001",
+    "name": "Organic Vegetables Box",
+    "emoji": "🥦",
+    "desc": "Seasonal veggies — spinach, broccoli, capsicum, beans & more. Harvested fresh daily.",
+    "price": 299,
+    "unit": "per kg box",
+    "category": "Vegetables",
+    "badge": "Best Seller",
+    "featured": true,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-002",
+    "name": "Fresh Fruits Basket",
+    "emoji": "🍎",
+    "desc": "Naturally ripened apples, mangoes, papayas, bananas — no pesticides.",
+    "price": 349,
+    "unit": "per kg box",
+    "category": "Fruits",
+    "badge": "New",
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-003",
+    "name": "Whole Grains & Pulses",
+    "emoji": "🌾",
+    "desc": "Organic wheat, rice, moong, masoor — stone-ground, unprocessed.",
+    "price": 199,
+    "unit": "per 500g pack",
+    "category": "Grains",
+    "badge": null,
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-004",
+    "name": "Cold-Pressed Oils",
+    "emoji": "🫙",
+    "desc": "Pure mustard, coconut & groundnut oils — cold-pressed to retain nutrients.",
+    "price": 449,
+    "unit": "per litre",
+    "category": "Oils",
+    "badge": null,
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-005",
+    "name": "Raw Honey & Spices",
+    "emoji": "🍯",
+    "desc": "Wildflower honey and hand-ground spices — turmeric, cumin, coriander, cardamom.",
+    "price": 399,
+    "unit": "per set",
+    "category": "Spices",
+    "badge": "Premium",
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-006",
+    "name": "A2 Dairy & Eggs",
+    "emoji": "🥛",
+    "desc": "A2 cow milk, desi ghee, curd and free-range eggs from partner farms.",
+    "price": 129,
+    "unit": "per litre",
+    "category": "Dairy",
+    "badge": null,
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-007",
+    "name": "Organic Tomatoes",
+    "emoji": "🍅",
+    "desc": "Vine-ripened, pesticide-free tomatoes from Rajasthan farms.",
+    "price": 89,
+    "unit": "per 500g",
+    "category": "Vegetables",
+    "badge": null,
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-008",
+    "name": "Desi Bananas",
+    "emoji": "🍌",
+    "desc": "Naturally ripened desi bananas — sweet, soft and freshly harvested.",
+    "price": 79,
+    "unit": "per dozen",
+    "category": "Fruits",
+    "badge": null,
+    "featured": false,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  }
+]

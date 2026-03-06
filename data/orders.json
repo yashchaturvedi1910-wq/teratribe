@@ -1,0 +1,45 @@
+[
+  {
+    "id": "TT1001",
+    "userId": "64c2a8fa-86ed-4685-bdd2-12379b180dfa",
+    "customerName": "Yash Chaturvedi",
+    "customerEmail": "yashchaturvedi1910@gmail.com",
+    "items": [
+      {
+        "id": "prod-001",
+        "name": "Organic Vegetables Box",
+        "emoji": "🥦",
+        "desc": "Seasonal veggies — spinach, broccoli, capsicum, beans & more. Harvested fresh daily.",
+        "price": 299,
+        "unit": "per kg box",
+        "category": "Vegetables",
+        "badge": "Best Seller",
+        "featured": true,
+        "createdAt": "2025-01-01T00:00:00.000Z",
+        "qty": 1
+      },
+      {
+        "id": "prod-002",
+        "name": "Fresh Fruits Basket",
+        "emoji": "🍎",
+        "desc": "Naturally ripened apples, mangoes, papayas, bananas — no pesticides.",
+        "price": 349,
+        "unit": "per kg box",
+        "category": "Fruits",
+        "badge": "New",
+        "featured": false,
+        "createdAt": "2025-01-01T00:00:00.000Z",
+        "qty": 1
+      }
+    ],
+    "address": "A- 17 shivpuri colony jaipur near cheelgadi restaurant, jaipur — 302029",
+    "phone": "7878011344",
+    "total": 648,
+    "paymentMethod": "COD",
+    "paymentId": null,
+    "razorpayOrderId": null,
+    "paymentStatus": "pending",
+    "status": "confirmed",
+    "createdAt": "2026-03-06T05:51:38.110Z"
+  }
+]

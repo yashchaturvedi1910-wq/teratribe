@@ -1,0 +1,29 @@
+[
+  {
+    "id": "admin-001",
+    "name": "Admin",
+    "email": "admin@teratribe.in",
+    "phone": "9876543210",
+    "password": "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "isAdmin": true,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "64c2a8fa-86ed-4685-bdd2-12379b180dfa",
+    "name": "Yash Chaturvedi",
+    "email": "yashchaturvedi1910@gmail.com",
+    "phone": "7878011344",
+    "password": "$2b$10$vBL.fq.hT9Tk3p/NvVvYgOAwgwX0CmIrUv1rLZWfox3YSbufHoEV.",
+    "isAdmin": false,
+    "createdAt": "2026-03-06T05:51:20.271Z"
+  },
+  {
+    "id": "d49f7e80-21a8-4db1-9955-c57ad8f5acde",
+    "name": "Yash Chaturvedi",
+    "email": "yashchaturvedi0705@gmail.com",
+    "phone": "7878011344",
+    "password": "$2b$10$izp66O99wtaSEw/Zmj89yeIb72WpI3JXt5b7kUJ5IeRCVFRpUxjAy",
+    "isAdmin": false,
+    "createdAt": "2026-03-06T06:12:29.406Z"
+  }
+]
