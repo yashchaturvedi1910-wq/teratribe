@@ -334,11 +334,6 @@ app.get('/{*path}', (req, res) => {
 });
 
 // ── Start server ────────────────────────────────────────────
-
-// Auto-create admin
-const bcrypt=require('bcryptjs');
-if(!users.find(u=>u.email==='admin@teratribe.in')){users.push({id:'admin-001',name:'Admin',email:'admin@teratribe.in',password:'$2b$10$lCNuj4oiUl2XV2WYcVJf1.J2Keoya6TUdZHPRRNdEpRe6OW4RxOLu',isAdmin:true,createdAt:new Date().toISOString()});}
-
 app.listen(PORT, () => {
   console.log(`\n🌿 TERATRIBE Server running at http://localhost:${PORT}`);
   console.log(`📦 Admin login: admin@teratribe.in / admin123`);
