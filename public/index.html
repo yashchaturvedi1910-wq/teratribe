@@ -285,7 +285,7 @@ footer{background:#0f2419;padding:52px 5% 26px;}
       <div class="fg"><label>Password</label><input type="password" id="lpass" placeholder="••••••••"/></div>
       <button class="fbtn" onclick="doLogin()">Login</button>
       <div style="margin-top:.8rem;font-size:.8rem;color:var(--tm);text-align:center;">
-        Admin demo: <b>admin@teratribe.in</b> / <b>admin123</b>
+        Admin demo: <b><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7213161f1b1c320617001306001b10175c1b1c">[email&#160;protected]</a></b> / <b>admin123</b>
       </div>
     </div>
     <div class="pane" id="signupPane">
@@ -369,14 +369,12 @@ footer{background:#0f2419;padding:52px 5% 26px;}
     <div class="asec on" id="asecProducts">
       <div class="alist" id="adminProds"></div>
       <h3 style="font-size:.95rem;font-weight:700;color:var(--g1);margin-bottom:.9rem;">➕ Add Product</h3>
-      <div class="frow"><div class="fg"><label>Name</label><input type="text" id="npn" placeholder="Organic Spinach"/></div><div class="fg"><label>Emoji</label><input type="text" id="npe" placeholder="🥦" maxlength="2"/></div></div>
-      <div class="frow"><div class="fg"><label>Price (₹)</label><input type="number" id="npp" placeholder="299"/></div><div class="fg"><label>Unit</label><input type="text" id="npu" placeholder="per kg"/></div></div>
+      <div class="frow"><div class="fg"><label>Name</label><input type="text" id="npn" placeholder="Organic Spinach"/></div><div class="fg"><label>Price (&#8377;)</label><input type="number" id="npp" placeholder="299"/></div></div>
+      <div class="frow"><div class="fg"><label>Unit</label><input type="text" id="npu" placeholder="per kg"/></div><div class="fg"><label>Badge (optional)</label><input type="text" id="npb" placeholder="New / Best Seller"/></div></div>
       <div class="fg"><label>Description</label><input type="text" id="npd" placeholder="Short description"/></div>
-      <div class="frow">
-        <div class="fg"><label>Category</label><select id="npc"><option>Vegetables</option><option>Fruits</option><option>Grains</option><option>Oils</option><option>Spices</option><option>Dairy</option></select></div>
-        <div class="fg"><label>Badge (optional)</label><input type="text" id="npb" placeholder="New / Best Seller"/></div>
-      </div>
-      <button class="fbtn" onclick="addProduct()">Add Product</button>
+      <div class="fg"><label>Category</label><select id="npc"><option>Vegetables</option><option>Fruits</option><option>Grains</option><option>Oils</option><option>Spices</option><option>Dairy</option><option>Dry Fruits</option><option>Pulses</option><option>Superfoods</option><option>Herbal &amp; Tea</option><option>Sweeteners</option></select></div>
+      <div class="fg"><label>Product Images &#128248; (3-4 images select karo)</label><input type="file" id="npimgs" accept="image/*" multiple onchange="previewAdminImgs(this)" style="padding:8px;cursor:pointer;background:var(--cream);border-radius:10px;border:1px solid #c8e6c9;width:100%;box-sizing:border-box;"/><div id="imgPreviews" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;"></div></div>
+      <button class="fbtn" id="addProdBtn" onclick="addProduct()">Add Product</button>
     </div>
     <!-- Orders -->
     <div class="asec" id="asecOrders">
@@ -540,7 +538,7 @@ footer{background:#0f2419;padding:52px 5% 26px;}
       <div class="cdet">
         <div class="cit"><div class="ctic">📍</div><div class="cttx"><strong>Address</strong>123 Organic Lane, Vaishali Nagar, Jaipur — 302021</div></div>
         <div class="cit"><div class="ctic">📞</div><div class="cttx"><strong>Phone</strong>+91 98765 43210</div></div>
-        <div class="cit"><div class="ctic">✉️</div><div class="cttx"><strong>Email</strong>hello@teratribe.in</div></div>
+        <div class="cit"><div class="ctic">✉️</div><div class="cttx"><strong>Email</strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3058555c5c5f704455425144425952551e595e">[email&#160;protected]</a></div></div>
         <div class="cit"><div class="ctic">🕐</div><div class="cttx"><strong>Hours</strong>Mon – Sat, 8:00 AM – 8:00 PM</div></div>
       </div>
     </div>
@@ -575,7 +573,7 @@ footer{background:#0f2419;padding:52px 5% 26px;}
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── CONFIG ──────────────────────────────────────────────────
 const API = '';  // Empty = same server. If running separately, set to 'http://localhost:3000'
 const RAZORPAY_KEY = 'rzp_test_XXXXXXXXXXXXXXXX'; // Replace with your Razorpay key
@@ -635,15 +633,18 @@ async function loadProducts() {
   }
 }
 function renderProducts(list) {
+  const getId = p => p._id || p.id;
   $('prodGrid').innerHTML = list.map(p => `
     <div class="pc ${p.featured?'feat':''}">
       ${p.badge?`<div class="pbadge">${p.badge}</div>`:''}
-      <span class="pemo">${p.emoji}</span>
+      ${p.image
+        ? `<img src="${p.image}" style="width:100%;height:140px;object-fit:cover;border-radius:14px;margin-bottom:.9rem;" loading="lazy"/>`
+        : `<span class="pemo">${p.emoji}</span>`}
       <div class="pname">${p.name}</div>
       <div class="pdesc">${p.desc}</div>
       <div class="pfoot">
         <div class="pprice">₹${p.price} <small>/ ${p.unit}</small></div>
-        <button class="acbtn" onclick="addToCart('${p.id}')">+</button>
+        <button class="acbtn" onclick="addToCart('${getId(p)}')">+</button>
       </div>
     </div>`).join('');
 }
@@ -655,7 +656,7 @@ function filterProds(cat, btn) {
 
 // ── CART ────────────────────────────────────────────────────
 function addToCart(id) {
-  const p = products.find(x=>x.id===id);
+  const p = products.find(x=>(x._id||x.id)===id||x._id?.toString()===id);
   if (!p) return;
   const ex = cart.find(c=>c.id===id);
   if (ex) ex.qty++; else cart.push({...p, qty:1});
@@ -901,17 +902,49 @@ async function deleteProduct(id) {
   renderProducts(products); loadAdminProds();
   toast('🗑 Product deleted!');
 }
+function previewAdminImgs(input) {
+  const container=$('imgPreviews');
+  container.innerHTML='';
+  if(input.files&&input.files.length>0){
+    Array.from(input.files).forEach((file,i)=>{
+      const reader=new FileReader();
+      reader.onload=e=>{
+        const div=document.createElement('div');
+        div.style.cssText='position:relative;display:inline-block;';
+        div.innerHTML='<img src="'+e.target.result+'" style="width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid #52b788;"/><span style="position:absolute;top:-6px;right:-6px;background:#52b788;color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;">'+(i+1)+'</span>';
+        container.appendChild(div);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+}
 async function addProduct() {
   const name=$('npn').value.trim(), price=parseInt($('npp').value);
-  if(!name||!price){toast('❌ Name and price required!');return;}
-  const prod={name,emoji:$('npe').value||'📦',desc:$('npd').value,price,unit:$('npu').value||'unit',category:$('npc').value,badge:$('npb').value||null};
+  if(!name||!price){toast('Name and price required!');return;}
+  const btn=$('addProdBtn'); btn.textContent='Uploading...'; btn.disabled=true;
   try{
-    const saved=await api('/api/products','POST',prod);
+    const formData=new FormData();
+    formData.append('name',name);
+    formData.append('emoji','');
+    formData.append('desc',$('npd').value);
+    formData.append('price',price);
+    formData.append('unit',$('npu').value||'unit');
+    formData.append('category',$('npc').value);
+    formData.append('badge',$('npb').value||'');
+    const imgFiles=$('npimgs').files;
+    if(imgFiles&&imgFiles.length>0){
+      Array.from(imgFiles).forEach(f=>formData.append('images',f));
+    }
+    const resp=await fetch('/api/products',{method:'POST',headers:{'Authorization':'Bearer '+authToken},body:formData});
+    const saved=await resp.json();
+    if(saved.error){toast('Error: '+saved.error);return;}
     products.push(saved);
-  } catch{ prod.id='p'+Date.now(); products.push(prod); }
+  } catch(e){ toast('Error: '+e.message); }
+  finally{ btn.textContent='Add Product'; btn.disabled=false; }
   renderProducts(products); loadAdminProds();
-  $('npn').value='';$('npe').value='';$('npp').value='';$('npd').value='';$('npb').value='';
-  toast('✅ Product added!');
+  $('npn').value='';$('npp').value='';$('npd').value='';$('npb').value='';
+  $('npimgs').value=''; $('imgPreviews').innerHTML='';
+  toast('Product added!');
 }
 async function loadAdminOrds() {
   let ords=[];
@@ -948,15 +981,4 @@ let mOpen=false;
 function toggleMobile(){
   mOpen=!mOpen;
   const nl=$('navlinks');
-  if(mOpen){nl.style.cssText='display:flex;flex-direction:column;position:absolute;top:58px;left:0;right:0;background:rgba(248,244,237,.97);padding:18px 5%;gap:1rem;border-bottom:1px solid var(--cream2);backdrop-filter:blur(16px);z-index:999;';}
-  else{nl.style.cssText='';}
-}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});if(mOpen)toggleMobile();}
-  });
-});
-</script>
-</body>
-</html>
+  if(mOpen){nl.style.cssText='display:flex;flex-direction:column;position:absolute;top:58px;left:0;right:0;background:rgba(248,244,237,.97);padding:18px 5%;gap:1rem;border-bottom:1px solid var(--cream2);ba
